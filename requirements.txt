@@ -1,0 +1,8 @@
+langchain-core==0.3.20
+langchain==0.3.0
+langgraph==0.2.27
+langchain-community==0.3.0
+langchain-ollama==0.2.1
+wikipedia==1.4.0
+requests==2.31.0
+gtts==2.4.0
