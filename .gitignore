@@ -28,3 +28,25 @@ Thumbs.db
 
 # Environment
 .env
+*.egg-info/
+dist/
+build/
+
+# Outputs
+outputs/images/
+outputs/audio/
+outputs/final_video/
+*.mp4
+*.wav
+*.png
+*.jpg
+
+# HuggingFace / Diffusers cache
+~/.cache/
+huggingface/
+cache/
+hf_cache/
+
+# Logs
+*.log
+logs/
