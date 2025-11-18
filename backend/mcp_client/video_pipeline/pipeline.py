@@ -1,5 +1,5 @@
 from script_generator import generate_script
-from image_generator import generate_images
+from image_generator import generate_images_dalle2
 from audio_generator import generate_audio
 from video_assembler import assemble_video
 
@@ -9,7 +9,7 @@ def create_video(topic: str, num_scenes: int = 4):
     script = generate_script(topic, num_scenes)
 
     print("\n=== Generating Images ===")
-    image_paths = generate_images(script)
+    image_paths = generate_images_dalle2(script)
 
     print("\n=== Generating Audio ===")
     audio_paths = generate_audio(script)

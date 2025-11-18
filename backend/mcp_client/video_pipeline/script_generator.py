@@ -46,11 +46,15 @@ def generate_script(topic: str, num_scenes: int = 4):
     content = response.content.strip()
 
     try:
-        data = json.loads(content)
-    except json.JSONDecodeError:
-        raise ValueError("LLM did not return valid JSON. Response was:\n" + content)
+        script = json.loads(response.content)
+    except:
+        raise ValueError("Model did not return valid JSON:\n" + response.content)
 
-    return data
+    for scene in script.get("scenes", []):
+        if "narration_text" not in scene or not scene["narration_text"]:
+            scene["narration_text"] = "This scene explains the concept shown in the diagram in a simple manner suitable for students."
+
+    return script
 
 
 # def main():

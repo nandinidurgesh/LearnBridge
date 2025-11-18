@@ -1,13 +1,10 @@
-# mcp_client/video_pipeline/video_assembler.py
+
 
 import os
 from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
 
 
 def assemble_video(image_paths, audio_paths, output_path="final_video/output.mp4"):
-    """
-    Combine scene images + audio into full video.
-    """
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 

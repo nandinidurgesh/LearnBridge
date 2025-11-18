@@ -1,13 +1,16 @@
-
-#python
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Virtual Environments
 venv/
+vnev/
 env/
 ENV/
+.venv/
 
 # IDEs
 .vscode/
@@ -15,38 +18,105 @@ ENV/
 *.swp
 *.swo
 
-# Generated files
-videos/
-temp_audio_files/
-temp_video_files/
-*.mp3
-*.html
+# Claude Code
+.claude/
 
-# OS
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# OS Files
 .DS_Store
 Thumbs.db
 
-# Environment
-.env
+# Python Package Build
 *.egg-info/
 dist/
 build/
 
-# Outputs
-outputs/images/
-outputs/audio/
-outputs/final_video/
+# Node.js (Frontend)
+node_modules/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Frontend Build
+frontend/dist/
+frontend/build/
+
+# Generated Video Output - Backend Storage
+backend/storage/videos/*.mp4
+backend/storage/videos/*.webm
+backend/storage/thumbnails/*.jpg
+backend/storage/thumbnails/*.png
+backend/storage/temp/
+
+# Keep the directories but ignore contents
+!backend/storage/videos/.gitkeep
+!backend/storage/thumbnails/.gitkeep
+!backend/storage/temp/.gitkeep
+
+# Legacy Output Folders (old structure)
+output_images/
+output_audio/
+final_video/
+videos/
+temp_audio_files/
+temp_video_files/
+
+# All media files (generated content)
+*.mp3
 *.mp4
 *.wav
-*.png
-*.jpg
+*.webm
+*.avi
+*.mov
 
-# HuggingFace / Diffusers cache
+# Don't ignore images in frontend public/assets
+!frontend/public/**/*.png
+!frontend/public/**/*.jpg
+!frontend/public/**/*.svg
+
+# HuggingFace / Diffusers Cache
 ~/.cache/
 huggingface/
 cache/
 hf_cache/
+.cache/
+
+# PyTorch / ML Models
+*.pt
+*.pth
+*.ckpt
+*.safetensors
 
 # Logs
 *.log
 logs/
+
+# Database (when you add one)
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter Notebooks (if you add any)
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.AppleDouble
+.LSOverride
+._*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
