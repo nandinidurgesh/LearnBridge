@@ -5,7 +5,7 @@ export type VideoStep = 'script' | 'images' | 'audio' | 'assembly';
 export interface Video {
   id: string;
   topic: string;
-  num_scenes: number;
+  num_scenes?: number;
   status: VideoStatus;
   progress: number;
   current_step?: VideoStep;
@@ -17,7 +17,7 @@ export interface Video {
 
 export interface CreateVideoRequest {
   topic: string;
-  num_scenes: number;
+  num_scenes?: number;
 }
 
 export interface CreateVideoResponse {

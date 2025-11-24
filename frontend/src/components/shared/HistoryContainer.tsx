@@ -111,13 +111,13 @@ export default function HistoryContainer({
                       <Play className="w-3 h-3" />
                       Play
                     </button>
-                    <button
+                    {/* <button
                       onClick={() => onDownloadVideo?.(video.id, video.topic)}
                       className="flex items-center justify-center px-2 py-1.5 bg-slate-50 text-slate-700 rounded-lg hover:bg-slate-100 transition-all"
                       title="Download"
                     >
                       <Download className="w-3 h-3" />
-                    </button>
+                    </button> */}
                     <button
                       onClick={() => onDeleteVideo?.(video.id)}
                       className="flex items-center justify-center px-2 py-1.5 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-all"

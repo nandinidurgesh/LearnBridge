@@ -123,7 +123,10 @@ export default function VideoContainer({
     const fullVideoUrl = videoService.getVideoUrl(videoUrl);
 
     return (
-      <div className="w-full flex justify-center items-center h-3/5">
+      <div
+        className="w-full flex justify-center items-center"
+        style={{ height: "80vh" }}
+      >
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden w-full h-full flex flex-col">
           <div className="relative flex-1 bg-black flex items-center justify-center">
             <video
@@ -146,7 +149,7 @@ export default function VideoContainer({
             <h3 className="text-xl font-bold text-slate-900 mb-4">
               {topic || "Your Video"}
             </h3>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               <a
                 href={fullVideoUrl}
                 target="_blank"
@@ -163,7 +166,7 @@ export default function VideoContainer({
               >
                 Download
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

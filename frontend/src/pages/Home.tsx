@@ -9,7 +9,6 @@ import InputForm from "../components/shared/InputForm";
 
 export default function Home() {
   const [topic, setTopic] = useState("");
-  const [numScenes, setNumScenes] = useState(5);
 
   const {
     generateVideo,
@@ -34,17 +33,17 @@ export default function Home() {
     e.preventDefault();
     if (!topic.trim()) return;
 
-    await generateVideo({ topic, num_scenes: numScenes });
+    // num_scenes is now optional - backend auto-determines optimal count
+    await generateVideo({ topic });
   };
 
   const handleCreateAnother = () => {
     reset();
     setTopic("");
-    setNumScenes(5);
     fetchHistory();
   };
 
-  const handlePlayVideo = (videoId: string, videoUrl: string) => {
+  const handlePlayVideo = (_videoId: string, videoUrl: string) => {
     const fullUrl = videoService.getVideoUrl(videoUrl);
     window.open(fullUrl, "_blank");
   };
@@ -87,9 +86,7 @@ export default function Home() {
           {!videoUrl && (
             <InputForm
               topic={topic}
-              numScenes={numScenes}
               onTopicChange={setTopic}
-              onScenesChange={setNumScenes}
               onSubmit={handleSubmit}
               isLoading={isGenerating}
             />
