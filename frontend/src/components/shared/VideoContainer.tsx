@@ -112,7 +112,7 @@ export default function VideoContainer({
             <span className="font-semibold text-violet-600">{topic}</span>
           </p>
           <p className="text-sm text-slate-500 mt-2">
-            This usually takes 1-2 minutes...
+            This usually takes 2-3 minutes...
           </p>
         </div>
       </div>
