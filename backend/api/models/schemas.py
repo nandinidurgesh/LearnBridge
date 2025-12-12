@@ -19,7 +19,7 @@ class VideoStep(str, Enum):
 
 class CreateVideoRequest(BaseModel):
     topic: str = Field(..., min_length=1, max_length=200, description="Video topic")
-    num_scenes: int = Field(..., ge=3, le=10, description="Number of scenes (3-10)")
+    num_scenes: Optional[int] = Field(None, ge=3, le=20, description="Number of scenes (3-20). If not provided, auto-determined (10-20 based on complexity)")
 
 
 class CreateVideoResponse(BaseModel):
@@ -39,7 +39,7 @@ class VideoStatusResponse(BaseModel):
 class Video(BaseModel):
     id: str
     topic: str
-    num_scenes: int
+    num_scenes: Optional[int] = None
     status: VideoStatus
     progress: int
     current_step: Optional[VideoStep] = None

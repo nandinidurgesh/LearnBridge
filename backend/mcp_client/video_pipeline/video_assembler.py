@@ -23,7 +23,7 @@ def assemble_video(image_paths, audio_paths, output_path="final_video/output.mp4
     final = concatenate_videoclips(clips)
     final.write_videofile(output_path, fps=24)
 
-    print(f"\n🎉 Video created: {output_path}")
+    print(f"\n Video created: {output_path}")
     return output_path
 
 

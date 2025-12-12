@@ -3,9 +3,6 @@ import os
 from gtts import gTTS
 
 def generate_audio(script, output_dir="output_audio"):
-    """
-    Converts narration_text from script into MP3 files.
-    """
     os.makedirs(output_dir, exist_ok=True)
 
     audio_paths = []
@@ -20,7 +17,7 @@ def generate_audio(script, output_dir="output_audio"):
         file_path = os.path.join(output_dir, f"scene_{scene_id}.mp3")
         tts.save(file_path)
 
-        print(f"✔ Saved: {file_path}")
+        print(f"Saved: {file_path}")
 
         audio_paths.append(file_path)
 

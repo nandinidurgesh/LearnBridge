@@ -14,7 +14,7 @@ class JobTracker:
     def __init__(self):
         self.jobs: Dict[str, Video] = {}
 
-    def create_job(self, topic: str, num_scenes: int) -> str:
+    def create_job(self, topic: str, num_scenes: Optional[int] = None) -> str:
         """Create a new job and return job_id"""
         job_id = str(uuid.uuid4())
 
@@ -46,6 +46,11 @@ class JobTracker:
             self.jobs[job_id].progress = progress
             if current_step:
                 self.jobs[job_id].current_step = current_step
+
+    def update_num_scenes(self, job_id: str, num_scenes: int):
+        """Update the number of scenes after script generation"""
+        if job_id in self.jobs:
+            self.jobs[job_id].num_scenes = num_scenes
 
     def mark_completed(
         self,

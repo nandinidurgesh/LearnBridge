@@ -26,6 +26,15 @@ ENV/
 .env.local
 .env.production
 
+# Service Account Keys & Secrets
+backend/.secrets/
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!vite.config.ts
+!frontend/**/*.json
+
 # OS Files
 .DS_Store
 Thumbs.db

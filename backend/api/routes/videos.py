@@ -1,6 +1,4 @@
-"""
-Video generation API routes
-"""
+
 from fastapi import APIRouter, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
 from pathlib import Path
@@ -20,7 +18,7 @@ from ..services.video_service import start_video_generation
 
 router = APIRouter(prefix="/api/videos", tags=["videos"])
 
-# Storage directory
+
 STORAGE_DIR = Path(__file__).parent.parent.parent / "storage"
 
 
@@ -33,10 +31,10 @@ async def generate_video(
     Initiate video generation
     Returns job_id for status polling
     """
-    # Create job
+
     job_id = job_tracker.create_job(request.topic, request.num_scenes)
 
-    # Start generation in background
+
     background_tasks.add_task(
         start_video_generation,
         job_id,
@@ -79,7 +77,6 @@ async def get_video_history():
     """
     videos = job_tracker.get_all_jobs()
 
-    # Filter only completed videos for history
     completed_videos = [v for v in videos if v.status == VideoStatus.COMPLETED]
 
     return VideoHistoryResponse(videos=completed_videos)
@@ -107,13 +104,11 @@ async def delete_video(video_id: str):
     """
     Delete a video
     """
-    # Delete from job tracker
     success = job_tracker.delete_job(video_id)
 
     if not success:
         raise HTTPException(status_code=404, detail="Video not found")
 
-    # Delete files
     video_path = STORAGE_DIR / "videos" / f"{video_id}.mp4"
     thumbnail_path = STORAGE_DIR / "thumbnails" / f"{video_id}.jpg"
 

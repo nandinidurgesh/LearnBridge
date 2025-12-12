@@ -5,19 +5,19 @@ from video_assembler import assemble_video
 
 
 def create_video(topic: str, num_scenes: int = 4):
-    print("\n=== Generating Script ===")
+    print("\n.... Generating Script ....")
     script = generate_script(topic, num_scenes)
 
-    print("\n=== Generating Images ===")
+    print("\n.... Generating Images ....")
     image_paths = generate_images_dalle2(script)
 
-    print("\n=== Generating Audio ===")
+    print("\n.... Generating Audio ....")
     audio_paths = generate_audio(script)
 
-    print("\n=== Assembling Final Video ===")
+    print("\n.... Assembling Final Video ....")
     final_path = assemble_video(image_paths, audio_paths)
 
-    print("\n🎉 COMPLETED! Final video saved at:", final_path)
+    print("\nFinal video saved at:", final_path)
 
 
 def main():

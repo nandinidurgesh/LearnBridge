@@ -5,20 +5,20 @@ pydantic==2.9.2
 python-multipart==0.0.12
 python-dotenv==1.0.0
 
-# LLM for script generation
-langchain==0.3.0
-langchain-core==0.3.20
-langchain-ollama==0.2.1
+# Gemini API for script and SVG generation
+google-generativeai>=0.8.0
 
-# OpenAI for image generation
-openai>=1.0.0
+# SVG to PNG conversion
+cairosvg==2.7.1
+
+# Utilities
 requests==2.32.5
 
-# Text-to-speech
+#speech generation
 gtts==2.4.0
 
 # Video processing
-moviepy==1.0.3
-imageio==2.31.1
-imageio-ffmpeg==0.4.9
-Pillow==10.2.0
+moviepy==1.0.3 # video editing such as adding audio, cut, create clips, export etc. FFmpeg is the backend engine it relys on for video operations.
+imageio==2.31.1 # used by moviepy under the hood. Used for reading and writing images.
+imageio-ffmpeg==0.4.9 #Enables FFmpeg support for reading and writing videos. 
+Pillow==10.2.0 # Converting image formats, tet overlays, basically manipulating images. 

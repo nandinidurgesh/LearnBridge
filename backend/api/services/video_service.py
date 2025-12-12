@@ -24,7 +24,7 @@ from ..models.schemas import VideoStep
 executor = ThreadPoolExecutor(max_workers=2)
 
 
-def generate_video_sync(job_id: str, topic: str, num_scenes: int):
+def generate_video_sync(job_id: str, topic: str, num_scenes: int = None):
     """
     Synchronous video generation function (runs in thread pool)
     This wraps your existing video pipeline with progress tracking
@@ -45,6 +45,11 @@ def generate_video_sync(job_id: str, topic: str, num_scenes: int):
         job_tracker.update_progress(job_id, 5, VideoStep.SCRIPT)
 
         script = generate_script(topic, num_scenes)
+
+        # Update num_scenes in job tracker after script is generated
+        actual_num_scenes = len(script.get('scenes', []))
+        job_tracker.update_num_scenes(job_id, actual_num_scenes)
+
         job_tracker.update_progress(job_id, 25, VideoStep.SCRIPT)
 
         # Step 2: Generate Images (25-60%)
@@ -108,7 +113,7 @@ def generate_thumbnail(image_path: str, thumbnail_path: str):
         shutil.copy(image_path, thumbnail_path)
 
 
-async def start_video_generation(job_id: str, topic: str, num_scenes: int):
+async def start_video_generation(job_id: str, topic: str, num_scenes: int = None):
     """
     Start video generation in background thread
     (Async wrapper for the sync function)
