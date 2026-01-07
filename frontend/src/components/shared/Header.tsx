@@ -11,7 +11,7 @@ export default function Header() {
           <div>
             <h1 className="text-xl font-bold text-slate-900">LearnBridge</h1>
             <p className="text-xs text-slate-500">
-              AI-Powered Learning Videos{" "}
+              AI-Powered Awareness Videos{" "}
             </p>
           </div>
         </div>
